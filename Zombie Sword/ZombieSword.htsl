@@ -1,0 +1,31 @@
+goto function "Zombie Sword: 7 Blocks"
+stat "ZombieS/SecX" = locX
+stat "ZombieS/SecZ" = locZ
+
+stat "ZombieS/MainX" -= stat "ZombieS/SecX"
+stat "ZombieS/MainZ" -= stat "ZombieS/SecZ"
+
+if or (stat "ZombieS/MainX" >= 7, stat "ZombieS/MainZ" >= 7) {
+	changeHealth += 5
+}
+
+goto function "Zombie Sword: Start"
+
+if (stat "ZombieS/Cooldown" > 0) {
+	actionBar "&4&l[ERR] &fItem on Cooldown. Seconds Left: &a%stat.player/ZombieS/Cooldown%"
+	exit
+}
+
+changeHealth += 12
+stat "ZombieS/HP" = 5
+stat "ZombieS/HP" /= maxHealth
+stat "ZombieS/HP" *= 10
+changeHealth += stat "ZombieS/HP"
+
+stat "ZombieS/MainX" = locX
+stat "ZombieS/MainZ" = locZ
+function "Zombie Sword: 7 Blocks" true
+
+/*
+Make sure to have a playtime tracker, or just make a function that loops every second to decrease the cooldown
+*/

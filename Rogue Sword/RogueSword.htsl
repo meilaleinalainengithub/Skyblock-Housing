@@ -1,0 +1,13 @@
+goto function "Rogue Sword"
+
+if (stat "Rogue/Cooldown" > 0) {
+    actionBar "&4&l[ERR] &fItem on Cooldown. Seconds Left: &a%stat.player/Rogue/Cooldown%"
+    exit
+}
+
+applyPotion "Speed" 10 4 true
+stat "Rogue/Cooldown" = 20
+
+/*
+Make sure to have a playtime tracker, or just make a function that loops every second to decrease the cooldown
+*/
