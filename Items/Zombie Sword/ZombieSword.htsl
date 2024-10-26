@@ -10,6 +10,11 @@ if or (stat "ZombieS/MainX" >= 7, stat "ZombieS/MainZ" >= 7) {
 }
 
 goto function "Zombie Sword: Item"
+if (stat "Mana" < 70) {
+	actionBar "&4&l[ERR] &fNot enough &bmana&f."
+    exit
+}
+
 if (stat "ZombieS/Charges" > 0) {
 	stat "ZombieS/Charges" -= 1
 }
