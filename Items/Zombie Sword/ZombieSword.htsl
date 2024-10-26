@@ -6,26 +6,31 @@ stat "ZombieS/MainX" -= stat "ZombieS/SecX"
 stat "ZombieS/MainZ" -= stat "ZombieS/SecZ"
 
 if or (stat "ZombieS/MainX" >= 7, stat "ZombieS/MainZ" >= 7) {
-	changeHealth += 5
+	stat "Health" += 40
 }
 
-goto function "Zombie Sword: Start"
+goto function "Zombie Sword: Item"
+if (stat "ZombieS/Charges" > 0) {
+	stat "ZombieS/Charges" -= 1
+}
 
-if (stat "ZombieS/Cooldown" > 0) {
+if (stat "ZombieS/Cooldown" > 0, stat "ZombieS/Charges" == 0) {
 	actionBar "&4&l[ERR] &fItem on Cooldown. Seconds Left: &a%stat.player/ZombieS/Cooldown%"
 	exit
 }
 
-changeHealth += 12
+stat "Health" += 120
 stat "ZombieS/HP" = 5
 stat "ZombieS/HP" /= maxHealth
 stat "ZombieS/HP" *= 10
-changeHealth += stat "ZombieS/HP"
+stat "Health" += stat "ZombieS/HP"
+stat "Mana" -= 70
+
+if (stat "ZombieS/Charges" == 0) {
+	stat "ZombieS/Cooldown" = 15
+}
 
 stat "ZombieS/MainX" = locX
 stat "ZombieS/MainZ" = locZ
 function "Zombie Sword: 7 Blocks" true
 
-/*
-Make sure to have a playtime tracker, or just make a function that loops every second to decrease the cooldown
-*/

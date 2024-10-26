@@ -1,0 +1,19 @@
+goto function "Rogue Sword: Speed Timer"
+pause "600"
+stat "Speed" -= 100
+
+goto function "Rogue Sword: Item"
+
+if (stat "Mana" < 50) {
+    actionBar "&4&l[ERR] &fNot enough &bmana&f."
+    exit
+} 
+if (stat "Rogue/Cooldown" > 0) {
+    actionBar "&4&l[ERR] &fItem on Cooldown. Seconds Left: &a%stat.player/Rogue/Cooldown%"
+    exit
+}
+
+stat "Mana" -= 50
+stat "Rogue/Cooldown" = 5
+stat "Speed" += 100
+function "Rogue Sword: Speed Timer" false

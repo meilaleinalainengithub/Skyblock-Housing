@@ -1,0 +1,2 @@
+goto event "Player Join"
+stat "Health" = stat "Health/Max"

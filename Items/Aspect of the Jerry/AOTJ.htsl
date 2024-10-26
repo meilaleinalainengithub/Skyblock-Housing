@@ -1,4 +1,4 @@
-goto function "Aspect of the Jerry"
+goto function "AOTJ: Item"
 if (stat "AOTJ/Cooldown" > 0) {
     actionBar "&4&l[ERR] &fItem on Cooldown. Seconds Left: &a%stat.player/AOTJ/Cooldown%"
     exit
@@ -6,7 +6,3 @@ if (stat "AOTJ/Cooldown" > 0) {
 
 sound "Villager Idle" 1 1 "invokers_location"
 stat "AOTJ/Cooldown" = 5
-
-/*
-Make sure to have a playtime tracker, or just make a function that loops every second to decrease the cooldown
-*/

@@ -1,0 +1,10 @@
+// Set to 20T
+goto function "Item Cooldowns"
+stat "AOTJ/Cooldown" -= 1
+stat "Rogue/Cooldown" -= 1
+stat "ZombieS/Cooldown" -= 1
+
+goto event "Player Quit"
+stat "AOTJ/Cooldown" = 0
+stat "Rogue/Cooldown" = 0
+stat "ZombieS/Cooldown" = 0

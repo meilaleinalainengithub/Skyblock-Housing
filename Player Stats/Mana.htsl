@@ -1,0 +1,14 @@
+goto event "Player Join"
+stat "Mana" = stat "Mana/Max"
+
+// Set to 20 Ticks
+goto function "Mana: Gain 2%"
+if (stat "Mana" >= stat "Mana/Max") {
+    stat "Mana" = stat "Mana/Max"
+    exit
+} else {
+    stat "Mana/Gain" = stat "Mana/Max"
+    stat "Mana/Gain" /= 100
+    stat "Mana/Gain" *= 2
+    stat "Mana" += stat "Mana/Gain"
+}
