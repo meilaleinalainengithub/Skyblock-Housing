@@ -1,0 +1,19 @@
+goto function "Bank: Deposit"
+if (stat "Coins/Purse" < 1) {
+    exit
+} else {
+    stat "Coins/Temp" = stat "Coins/Purse"
+    stat "Coins/Temp" /= stat "Bank/Percent"
+    stat "Bank/Coins" += stat "Coins/Temp"
+    stat "Coins/Purse" -= stat "Coins/Temp"
+}
+
+goto function "Bank: Withdrawl"
+if (stat "Coins/Bank" < 1) {
+    exit
+} else {
+    stat "Coins/Temp" = stat "Bank/Coins"
+    stat "Coins/Temp" /= stat "Coins/Percent"
+    stat "Coins/Purse" += stat "Coins/Temp"
+    stat "Bank/Coins" -= stat "Coins/Temp"
+}

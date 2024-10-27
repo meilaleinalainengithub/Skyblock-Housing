@@ -2,5 +2,8 @@ goto event "Player Join"
 stat "Speed" = 100
 stat "Speed/Cap" = 400
 
+goto event "Player Respawn"
+stat "Speed" = 100
+
 goto function "Speed: Reset"
 stat "Speed" = stat "Speed/Max"

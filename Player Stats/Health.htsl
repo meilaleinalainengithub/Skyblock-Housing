@@ -1,2 +1,24 @@
 goto event "Player Join"
 stat "Health" = stat "Health/Max"
+
+goto event "Player Respawn"
+stat "Health" = stat "Health/Max"
+
+// Every 40T
+goto function "Health: Regen"
+if (stat "Health/LastCheck" < stat "Health") {
+    exit
+}
+
+if (stat "Health" < stat "Health/Max") {
+    stat "Health/Gain" = stat "Health/Max"
+    stat "Health/Gain" /= 100
+    stat "Health/Gain" += 1
+
+    stat "Health/Gain2" = stat "Health/Regen"
+    stat "Health/Gain2" /= 100
+    stat "Health/Gain" *= stat "Health/Gain2"
+    stat "Health" += stat "Health/Gain"
+}
+
+stat "Health/LastCheck" = stat "Health"

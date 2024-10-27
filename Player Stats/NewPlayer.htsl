@@ -3,4 +3,5 @@ if (stat "Id" == 0) {
     stat "Mana/Max" = 100
     stat "Speed/Max" = 100
     stat "Health/Max" = 100
+    stat "Health/Regen" = 100
 }

@@ -1,3 +1,3 @@
 // Every 20T
 goto function "Stat: Preview"
-actionBar "&c&lHealth: &f%stat.player/Health% | &f&lSpeed: &f%stat.player/Speed% | &b&lMana: &f%stat.player/Mana%"
+actionBar "&c&lHealth: &f%stat.player/Health%/%stat.player/Health/Max% | &f&lSpeed: &f%stat.player/Speed% | &b&lMana: &f%stat.player/Mana%"

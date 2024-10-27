@@ -1,6 +1,9 @@
 goto event "Player Join"
 stat "Mana" = stat "Mana/Max"
 
+goto event "Player Respawn"
+stat "Mana" = stat "Mana/Max"
+
 // Set to 20 Ticks
 goto function "Mana: Gain 2%"
 if (stat "Mana" >= stat "Mana/Max") {
