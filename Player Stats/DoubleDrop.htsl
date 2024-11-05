@@ -1,0 +1,8 @@
+goto event "Player Drop Item"
+if (stat "Drop" == 1) {
+    stat "Drop" = 0
+} else {
+    stat "Drop" = 1
+    actionBar "&c[Double Drop] &fDrop again to confirm drop"
+    cancelEvent
+}

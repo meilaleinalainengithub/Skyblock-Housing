@@ -17,3 +17,6 @@ if (stat "Coins/Bank" < 1) {
     stat "Coins/Purse" += stat "Coins/Temp"
     stat "Bank/Coins" -= stat "Coins/Temp"
 }
+
+// In Bank GUI you would set stat "Coins/Percent" to the percentage to use in the action.
+// i.e withdrawl 20% would be stat "Coins/Percent" = 5 
