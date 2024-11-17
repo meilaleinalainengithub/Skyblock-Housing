@@ -1,0 +1,18 @@
+goto function "Auction: Announce Item"
+chat ""
+if (globalstat "Auction/Item" == 1) {
+    chat "&6&lAuction House: &fSelling _ for %stat.global/Auction/Price%!"
+}
+chat "&6&lAuction House: &fCurrent bidder is &l%stat.global/Auction/Bidder%&f."
+chat ""
+
+goto function "Auction House"
+globalstat "Auction/Item" = placeholder %random.int/1 1%
+if (globalstat "Auction/Item" == 1) {
+    globalstat "Auction/Price" = 0
+}
+
+globalstat "Auction/Bidder" = 0
+globalstat "Auction/Next" = 0
+
+function "Auction: Announce Item" true
